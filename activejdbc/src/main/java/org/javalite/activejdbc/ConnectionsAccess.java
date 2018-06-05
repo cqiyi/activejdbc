@@ -31,16 +31,21 @@ import java.util.*;
 public class ConnectionsAccess {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionsAccess.class);
-    private static final ThreadLocal<HashMap<String, Connection>> connectionsTL = new ThreadLocal<>();
+
+//    private static final ThreadLocal<HashMap<String, Connection>> connectionsTL = new ThreadLocal<>();
+//    TODO: fix bug support Springboot, cqiyi 2018-06-05 12:27:27
+    private static final HashMap<String, Connection> connectionsTL = new HashMap<String, Connection>();
 
     private ConnectionsAccess() {
         
     }
     
     static Map<String, Connection> getConnectionMap(){
-        if (connectionsTL.get() == null)
-            connectionsTL.set(new HashMap<String, Connection>());
-        return connectionsTL.get();
+//        if (connectionsTL.get() == null)
+//            connectionsTL.set(new HashMap<String, Connection>());
+//        return connectionsTL.get();
+//    TODO: fix bug support Springboot, cqiyi 2018-06-05 12:27:27
+        return connectionsTL;
     }
 
 
